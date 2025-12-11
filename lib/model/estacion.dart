@@ -58,4 +58,5 @@ class Estacion {
       rentalUris: Map<String, dynamic>.from(json["rental_uris"] ?? {}),
     );
   }
+  
 }

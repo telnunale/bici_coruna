@@ -1,5 +1,5 @@
 class AnclajeBicisDisponibles {
-  // muelles disponibles para dejar bicis y  que tipos de bici aceptan
+  // anclajes disponibles para dejar bicis y  que tipos de bici aceptan
   final int count;
   final List<String> tipoBici;
 
@@ -11,4 +11,5 @@ class AnclajeBicisDisponibles {
       tipoBici: List<String>.from(json["vehicle_type_ids"] ?? []),
     );
   }
+  
 }
