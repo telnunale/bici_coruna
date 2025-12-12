@@ -1,3 +1,4 @@
+
 import 'package:bici_coruna/components/datos_estacion.dart';
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -13,12 +14,14 @@ class Inicio extends StatefulWidget {
 class _Inicio extends State<Inicio> {
   @override
   void initState() {
-    super.initState();
+    super.initState();  
   }
 
   @override
   Widget build(BuildContext context) {
-    final vm = context.watch<BiciViewmodel>();    
+    final vm = context.watch<BiciViewmodel>();  
+    vm.cargarEstaciones();
+
     return Scaffold(
       appBar: AppBar(title: const Text('Bici Coruna')),
 

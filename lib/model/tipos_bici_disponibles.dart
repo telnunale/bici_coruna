@@ -1,5 +1,5 @@
 class TiposBiciDisponibles {
-  final int count;
+  final int? count;
   final String tipoBici;
 
   TiposBiciDisponibles({required this.count, required this.tipoBici});

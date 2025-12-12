@@ -1,6 +1,6 @@
 class AnclajeBicisDisponibles {
   // anclajes disponibles para dejar bicis y  que tipos de bici aceptan
-  final int count;
+  final int? count;
   final List<String> tipoBici;
 
   AnclajeBicisDisponibles({required this.count, required this.tipoBici});

@@ -14,14 +14,14 @@ class BiciCorunaApi {
     }
 
     final decoded = jsonDecode(res.body);
-    if (decoded is! List) {
+      /*if (decoded is! List) {
       throw Exception('Respuesta inesperada');
-    }
+    }*/
 
-    return decoded;
+    return decoded["data"]["stations"] as List<dynamic>;
   }
 
-   Future<List<dynamic>> getEstadoEstacion() async {
+  Future<List<dynamic>> getEstadoEstacion() async {
     final url = Uri.parse('$_base/station_status');
     final res = await http.get(url);
 
@@ -30,13 +30,10 @@ class BiciCorunaApi {
     }
 
     final decoded = jsonDecode(res.body);
-    if (decoded is! List) {
+    /*if (decoded is! List) {
       throw Exception('Respuesta inesperada');
-    }
+    }*/
 
-    return decoded;
+     return decoded["data"]["stations"] as List<dynamic> ;
   }
-
-
-
 }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bici_coruna/data/bici_coruna_repositorio.dart';
 import 'package:bici_coruna/model/estacion.dart';
 import 'package:bici_coruna/model/estado_estacion.dart';
@@ -28,7 +30,8 @@ class BiciViewmodel extends ChangeNotifier {
       final res = await Future.wait([
         repo.getInformacionEstacion(),
         repo.getEstadoEstacion(),
-      ]);
+      ]); 
+      
       estaciones = res[0] as List<Estacion>;
       estadoEstaciones = res[1] as List<EstadoEstacion>;
     } catch (e) {
@@ -39,7 +42,6 @@ class BiciViewmodel extends ChangeNotifier {
     loading = false;   
     notifyListeners();
   }
-
   /*Future<void> cargarEstadoEstaciones() async {
     loading = true;
     error = null;

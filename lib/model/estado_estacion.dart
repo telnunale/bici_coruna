@@ -6,13 +6,13 @@ import 'package:bici_coruna/model/tipos_bici_disponibles.dart';
 
 class EstadoEstacion {
   final int idStation;
-  final int numBikesAvailable;
-  final int numBikesDisabled;
+  final int? numBikesAvailable;
+  final int? numBikesDisabled;
   final String status;
   final int? traffic;
-  final int numDocksAvailable;
-  final int numDocksDisabled;
-  final int lastReported;
+  final int? numDocksAvailable;
+  final int? numDocksDisabled;
+  final int? lastReported;
   final bool isInstalled;
   final bool isRenting;
   final bool isReturning;
@@ -37,14 +37,14 @@ class EstadoEstacion {
 
   factory EstadoEstacion.fromJson(Map<String, dynamic> json) {
     return EstadoEstacion(
-      idStation: (json['station_id'] as num).toInt(),
-      numBikesAvailable: (json['num_bikes_available'] as num).toInt(),
-      numBikesDisabled: (json['num_bikes_disabled'] as num).toInt(),
+      idStation: int.parse(json['station_id']),
+      numBikesAvailable: (json['num_bikes_available'] as num?)?.toInt(),
+      numBikesDisabled: (json['num_bikes_disabled'] as num?)?.toInt(),
       status: (json['status'] ?? '') as String,
-      traffic: (json['traffic'] as num).toInt(),
+      traffic: (json['traffic'] as num?)?.toInt(),
       numDocksAvailable: (json['num_docks_available'] as num).toInt(),
       numDocksDisabled: (json['num_docks_disabled'] as num).toInt(),
-      lastReported: (json['last_reported'] as num).toInt(),
+      lastReported: (json['last_reported'] as num?)?.toInt(),
       isInstalled: (json["is_installed"] as bool),
       isRenting: (json["is_renting"] as bool),
       isReturning: (json["is_returning"] as bool),

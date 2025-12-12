@@ -3,8 +3,23 @@ import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class DatosEstacion extends StatelessWidget {
+class DatosEstacion extends StatefulWidget {
   const DatosEstacion({super.key});
+
+  @override
+  State<DatosEstacion> createState() => _DatosEstacion();
+}
+
+class _DatosEstacion extends State<DatosEstacion> {
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() {
+      final vmr = context.read<BiciViewmodel>();
+      vmr.cargarEstacionPorId(3);
+      vmr.cargarEstadoEstacionPorId(3);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
