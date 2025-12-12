@@ -5,7 +5,7 @@ import 'package:bici_coruna/model/anclaje_bicis_disponibles.dart';
 import 'package:bici_coruna/model/tipos_bici_disponibles.dart';
 
 class EstadoEstacion {
-  final int id;
+  final int idStation;
   final int numBikesAvailable;
   final int numBikesDisabled;
   final String status;
@@ -20,7 +20,7 @@ class EstadoEstacion {
   final List<TiposBiciDisponibles> listaBicisDisponibles;
 
   EstadoEstacion({
-    required this.id,
+    required this.idStation,
     required this.numBikesAvailable,
     required this.numBikesDisabled,
     required this.status,
@@ -37,7 +37,7 @@ class EstadoEstacion {
 
   factory EstadoEstacion.fromJson(Map<String, dynamic> json) {
     return EstadoEstacion(
-      id: (json['station_id'] as num).toInt(),
+      idStation: (json['station_id'] as num).toInt(),
       numBikesAvailable: (json['num_bikes_available'] as num).toInt(),
       numBikesDisabled: (json['num_bikes_disabled'] as num).toInt(),
       status: (json['status'] ?? '') as String,

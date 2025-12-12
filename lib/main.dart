@@ -1,6 +1,7 @@
 import 'package:bici_coruna/data/bici_coruna_api.dart';
 import 'package:bici_coruna/data/bici_coruna_repositorio.dart';
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
+import 'package:bici_coruna/views/inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Informes API - Aula',
+        home: Inicio(),
       ),
     );
   }

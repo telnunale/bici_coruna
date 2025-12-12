@@ -1,8 +1,31 @@
-/*class detallesDeEstacion() {
-  final Estacion estacion;
+import 'package:bici_coruna/model/estacion.dart';
+import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-    const detallesDeEstacion({super.key, required this.estacion});
+class DatosEstacion extends StatelessWidget {
+  const DatosEstacion({super.key});
 
-    
-
-}*/
+  @override
+  Widget build(BuildContext context) {
+    final vm = context.watch<BiciViewmodel>();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(vm.estacionSeleccionada?.name ?? "Estacion no selecionada"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            Text(
+              "Nombre: ${vm.estacionSeleccionada?.name ?? "Estacion no selecionada"}",
+            ),
+            Text("Dirección: ${vm.estacionSeleccionada?.address ?? ""}"),
+            Text("Capacidad: ${vm.estacionSeleccionada?.capacity ?? ""}"),
+            Text("Dirección: ${vm.estacionSeleccionada?.address ?? ""}"),
+          ],
+        ),
+      ),
+    );
+  }
+}
