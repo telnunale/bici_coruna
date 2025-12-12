@@ -9,13 +9,13 @@ class EstadoEstacion {
   final int? numBikesAvailable;
   final int? numBikesDisabled;
   final String status;
-  final int? traffic;
-  final int? numDocksAvailable;
-  final int? numDocksDisabled;
-  final int? lastReported;
-  final bool isInstalled;
-  final bool isRenting;
-  final bool isReturning;
+  //final int? traffic;
+  //final int numDocksAvailable;
+  //final int numDocksDisabled;
+  //final int? lastReported;
+  //final bool isInstalled;
+  //final bool isRenting;
+  //final bool isReturning;
   final List<AnclajeBicisDisponibles> listaAnclajes;
   final List<TiposBiciDisponibles> listaBicisDisponibles;
 
@@ -24,13 +24,13 @@ class EstadoEstacion {
     required this.numBikesAvailable,
     required this.numBikesDisabled,
     required this.status,
-    required this.traffic,
-    required this.numDocksAvailable,
-    required this.numDocksDisabled,
-    required this.lastReported,
-    required this.isInstalled,
-    required this.isRenting,
-    required this.isReturning,
+    //required this.traffic,
+    //required this.numDocksAvailable,
+    //required this.numDocksDisabled,
+    //required this.lastReported,
+    //required this.isInstalled,
+    //required this.isRenting,
+    //required this.isReturning,
     required this.listaAnclajes,
     required this.listaBicisDisponibles,
   });
@@ -41,13 +41,13 @@ class EstadoEstacion {
       numBikesAvailable: (json['num_bikes_available'] as num?)?.toInt(),
       numBikesDisabled: (json['num_bikes_disabled'] as num?)?.toInt(),
       status: (json['status'] ?? '') as String,
-      traffic: (json['traffic'] as num?)?.toInt(),
-      numDocksAvailable: (json['num_docks_available'] as num).toInt(),
-      numDocksDisabled: (json['num_docks_disabled'] as num).toInt(),
-      lastReported: (json['last_reported'] as num?)?.toInt(),
-      isInstalled: (json["is_installed"] as bool),
-      isRenting: (json["is_renting"] as bool),
-      isReturning: (json["is_returning"] as bool),
+      //traffic: (json['traffic'] as num?)?.toInt(),
+      //numDocksAvailable: (json['num_docks_available'] as num).toInt(),
+      //numDocksDisabled: (json['num_docks_disabled'] as num).toInt(),
+      //lastReported: (json['last_reported'] as num?)?.toInt(),
+      //isInstalled: (json["is_installed"] as bool),
+      //isRenting: (json["is_renting"] as bool),
+      //isReturning: (json["is_returning"] as bool),
       listaAnclajes: (json['vehicle_docks_available'] as List<dynamic>)
           .map((e) => AnclajeBicisDisponibles.fromJson(e))
           .toList(),

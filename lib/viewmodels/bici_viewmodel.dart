@@ -42,20 +42,7 @@ class BiciViewmodel extends ChangeNotifier {
     loading = false;   
     notifyListeners();
   }
-  /*Future<void> cargarEstadoEstaciones() async {
-    loading = true;
-    error = null;
-    notifyListeners();
-
-    try {
-      estadoEstaciones = await repo.getEstadoEstacion();
-    } catch (e) {
-      error = e.toString();
-      estadoEstaciones = [];
-    }
-    loading = false;
-    notifyListeners();
-  }*/
+ 
 
   void cargarEstacionPorId(int id) {
     estacionSeleccionada = estaciones.firstWhere((e) => e.id == id);
