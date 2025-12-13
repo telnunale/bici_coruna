@@ -30,29 +30,39 @@ class BiciViewmodel extends ChangeNotifier {
       final res = await Future.wait([
         repo.getInformacionEstacion(),
         repo.getEstadoEstacion(),
-      ]); 
+      ]);
       
-      estaciones = res[0] as List<Estacion>;
-      estadoEstaciones = res[1] as List<EstadoEstacion>;
+
+      estaciones = res[0].cast<Estacion>();
+      estadoEstaciones = res[1].cast<EstadoEstacion>();
     } catch (e) {
       error = e.toString();
       estaciones = [];
       estadoEstaciones = [];
     }
-    loading = false;   
+    loading = false;
     notifyListeners();
   }
- 
 
   void cargarEstacionPorId(int id) {
-    estacionSeleccionada = estaciones.firstWhere((e) => e.id == id);
-    notifyListeners();
+    if (estaciones.isEmpty) return;
+    try {
+      estacionSeleccionada = estaciones.firstWhere((e) => e.id == id);
+      notifyListeners();
+    } catch (e) {
+      print("Estacion no encontrada: $id");
+    }
   }
 
   void cargarEstadoEstacionPorId(int id) {
-    estadoEstacionSeleccionada = estadoEstaciones.firstWhere(
-      (e) => e.idStation == id,
-    );
-    notifyListeners();
+    if (estadoEstaciones.isEmpty) return;
+    try {
+      estadoEstacionSeleccionada = estadoEstaciones.firstWhere(
+        (e) => e.idStation == id,
+      );
+      notifyListeners();
+    } catch (e) {
+      print("Estado Estacion no encontrada: $id");
+    }
   }
 }

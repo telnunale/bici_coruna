@@ -14,11 +14,11 @@ class _DatosEstacion extends State<DatosEstacion> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
+    //Future.microtask(() {
       final vmr = context.read<BiciViewmodel>();
       vmr.cargarEstacionPorId(3);
       vmr.cargarEstadoEstacionPorId(3);
-    });
+    //});
   }
 
   @override
@@ -37,7 +37,7 @@ class _DatosEstacion extends State<DatosEstacion> {
             ),
             Text("Dirección: ${vm.estacionSeleccionada?.address ?? ""}"),
             Text("Capacidad: ${vm.estacionSeleccionada?.capacity ?? ""}"),
-            Text("Dirección: ${vm.estacionSeleccionada?.address ?? ""}"),
+            Text("Capacidad: ${vm.estacionSeleccionada?.isChargingStation ?? ""}"),
           ],
         ),
       ),

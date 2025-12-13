@@ -48,12 +48,16 @@ class EstadoEstacion {
       //isInstalled: (json["is_installed"] as bool),
       //isRenting: (json["is_renting"] as bool),
       //isReturning: (json["is_returning"] as bool),
-      listaAnclajes: (json['vehicle_docks_available'] as List<dynamic>)
-          .map((e) => AnclajeBicisDisponibles.fromJson(e))
-          .toList(),
-      listaBicisDisponibles: (json['vehicle_types_available'] as List<dynamic>)
-          .map((e) => TiposBiciDisponibles.fromJson(e))
-          .toList(),
+      listaAnclajes:
+          (json['vehicle_docks_available'] as List<dynamic>?)
+              ?.map((e) => AnclajeBicisDisponibles.fromJson(e))
+              .toList() ??
+          [],
+      listaBicisDisponibles:
+          (json['vehicle_types_available'] as List<dynamic>?)
+              ?.map((e) => TiposBiciDisponibles.fromJson(e))
+              .toList() ??
+          [],
     );
   }
 }

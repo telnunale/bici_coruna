@@ -14,9 +14,6 @@ class BiciCorunaApi {
     }
 
     final decoded = jsonDecode(res.body);
-      /*if (decoded is! List) {
-      throw Exception('Respuesta inesperada');
-    }*/
 
     return decoded["data"]["stations"] as List<dynamic>;
   }
@@ -30,10 +27,7 @@ class BiciCorunaApi {
     }
 
     final decoded = jsonDecode(res.body);
-    /*if (decoded is! List) {
-      throw Exception('Respuesta inesperada');
-    }*/
 
-     return decoded["data"]["stations"] as List<dynamic> ;
+    return decoded["data"]["stations"] as List<dynamic>;
   }
 }
