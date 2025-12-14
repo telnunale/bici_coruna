@@ -1,5 +1,6 @@
 import 'package:bici_coruna/components/datos_estacion.dart';
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
+import 'package:bici_coruna/components/selectorEstaciones.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -45,5 +46,7 @@ Widget _buildBody(BiciViewmodel vm) {
   if (vm.estaciones.isEmpty) {
     return const Center(child: Text('No hay datos'));
   }
-  return const Center(child: DatosEstacion());
+  return Center(
+    child: Column(children: [DatosEstacion(), Selectorestaciones()]),
+  );
 }

@@ -36,7 +36,7 @@ class _DatosEstacion extends State<DatosEstacion> {
                   vm.estadoEstacionSeleccionada?.numBikesAvailable.toString() ??
                   "0",
             ),
-
+            
             /*InfoRow(
               label: "EFIT: ",
               value: vm.estadoEstacionSeleccionada?.bicisEfit.toString(),
