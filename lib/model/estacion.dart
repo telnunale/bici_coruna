@@ -6,7 +6,7 @@ class Estacion {
   final double? lon;
   final String address;
   final String postCode;
-  final int? capacity;
+  final int capacity;
   final bool isChargingStation;
   /*final int geofencedCapacity;
   final List<String> rentalMethods;
@@ -46,7 +46,7 @@ class Estacion {
       lon: (json['lon'] as num?)?.toDouble(),
       address: (json['address'] ?? '') as String,
       postCode: (json['post_code'] ?? '') as String,
-      capacity: (json['capacity'] as num?)?.toInt(),
+      capacity: (json['capacity'] ?? 0),
       isChargingStation: (json["is_charging_station"] as bool),
       /*geofencedCapacity: (json['geofenced_capacity'] as num).toInt(),
       rentalMethods: List<String>.from(json["rental_methods"] ?? []),

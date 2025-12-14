@@ -1,7 +1,7 @@
 class TiposBiciDisponibles {
   final int? count;
   final String tipoBici;
-
+  
   TiposBiciDisponibles({required this.count, required this.tipoBici});
 
   factory TiposBiciDisponibles.fromJson(Map<String, dynamic> json) {

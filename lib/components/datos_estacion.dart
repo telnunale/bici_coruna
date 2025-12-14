@@ -1,3 +1,4 @@
+import 'package:bici_coruna/components/info_row.dart';
 import 'package:bici_coruna/model/estacion.dart';
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -14,30 +15,36 @@ class _DatosEstacion extends State<DatosEstacion> {
   @override
   void initState() {
     super.initState();
-    //Future.microtask(() {
-      final vmr = context.read<BiciViewmodel>();
-      vmr.cargarEstacionPorId(3);
-      vmr.cargarEstadoEstacionPorId(3);
-    //});
   }
 
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<BiciViewmodel>();
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(vm.estacionSeleccionada?.name ?? "Estacion no selecionada"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
+    return Card(
+      child: Padding(
+        padding: const EdgeInsetsGeometry.all(16),
         child: Column(
           children: [
-            Text(
-              "Nombre: ${vm.estacionSeleccionada?.name ?? "Estacion no selecionada"}",
+            InfoRow(label: "Nombre: ", value: vm.estacionSeleccionada?.name),
+            InfoRow(
+              label: "Dirección: ",
+              value: vm.estacionSeleccionada?.address,
             ),
-            Text("Dirección: ${vm.estacionSeleccionada?.address ?? ""}"),
-            Text("Capacidad: ${vm.estacionSeleccionada?.capacity ?? ""}"),
-            Text("Capacidad: ${vm.estacionSeleccionada?.isChargingStation ?? ""}"),
+            InfoRow(
+              label: "Bicis Disponibles: ",
+              value:
+                  vm.estadoEstacionSeleccionada?.numBikesAvailable.toString() ??
+                  "0",
+            ),
+
+            /*InfoRow(
+              label: "EFIT: ",
+              value: vm.estadoEstacionSeleccionada?.bicisEfit.toString(),
+            ),
+            InfoRow(
+              label: "FIT: ",
+              value: vm.estadoEstacionSeleccionada?.bicisFit.toString(),
+            ),*/
           ],
         ),
       ),

@@ -6,8 +6,8 @@ import 'package:bici_coruna/model/tipos_bici_disponibles.dart';
 
 class EstadoEstacion {
   final int idStation;
-  final int? numBikesAvailable;
-  final int? numBikesDisabled;
+  final int numBikesAvailable;
+  final int numBikesDisabled;
   final String status;
   //final int? traffic;
   //final int numDocksAvailable;
@@ -38,8 +38,8 @@ class EstadoEstacion {
   factory EstadoEstacion.fromJson(Map<String, dynamic> json) {
     return EstadoEstacion(
       idStation: int.parse(json['station_id']),
-      numBikesAvailable: (json['num_bikes_available'] as num?)?.toInt(),
-      numBikesDisabled: (json['num_bikes_disabled'] as num?)?.toInt(),
+      numBikesAvailable: (json['num_bikes_available'] ?? 0),
+      numBikesDisabled: (json['num_bikes_disabled'] ?? 0),
       status: (json['status'] ?? '') as String,
       //traffic: (json['traffic'] as num?)?.toInt(),
       //numDocksAvailable: (json['num_docks_available'] as num).toInt(),
@@ -59,5 +59,27 @@ class EstadoEstacion {
               .toList() ??
           [],
     );
+  }
+
+  int get bicisEfit {
+    TiposBiciDisponibles b = listaBicisDisponibles.firstWhere(
+      (e) => e.tipoBici == "EFIT",
+    );
+    return b.count ?? 0;
+  }
+
+  int get bicisBoost {
+    TiposBiciDisponibles b = listaBicisDisponibles.firstWhere(
+      (e) => e.tipoBici == "BOOST",
+    );
+
+    return b.count ?? 0;
+  }
+
+  int get bicisFit {
+    TiposBiciDisponibles b = listaBicisDisponibles.firstWhere(
+      (e) => e.tipoBici == "FIT",
+    );
+    return b.count ?? 0;
   }
 }

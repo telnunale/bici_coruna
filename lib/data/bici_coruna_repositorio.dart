@@ -15,7 +15,7 @@ class BiciCorunaRepositorio {
   }
 
   Future<List<EstadoEstacion>> getEstadoEstacion() async {
-    final list = await api.getInformacionEstacion();
+    final list = await api.getEstadoEstacion();
     return list
         .map((e) => EstadoEstacion.fromJson(e as Map<String, dynamic>))
         .toList();

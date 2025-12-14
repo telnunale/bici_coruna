@@ -31,7 +31,6 @@ class BiciViewmodel extends ChangeNotifier {
         repo.getInformacionEstacion(),
         repo.getEstadoEstacion(),
       ]);
-      
 
       estaciones = res[0].cast<Estacion>();
       estadoEstaciones = res[1].cast<EstadoEstacion>();
@@ -40,7 +39,9 @@ class BiciViewmodel extends ChangeNotifier {
       estaciones = [];
       estadoEstaciones = [];
     }
+
     loading = false;
+    cargarEstacionPorDefecto();
     notifyListeners();
   }
 
@@ -48,9 +49,10 @@ class BiciViewmodel extends ChangeNotifier {
     if (estaciones.isEmpty) return;
     try {
       estacionSeleccionada = estaciones.firstWhere((e) => e.id == id);
+      cargarEstadoEstacionPorId(id);
       notifyListeners();
     } catch (e) {
-      print("Estacion no encontrada: $id");
+      error = "Estacion  no encontrada: $id";
     }
   }
 
@@ -60,9 +62,15 @@ class BiciViewmodel extends ChangeNotifier {
       estadoEstacionSeleccionada = estadoEstaciones.firstWhere(
         (e) => e.idStation == id,
       );
-      notifyListeners();
     } catch (e) {
-      print("Estado Estacion no encontrada: $id");
+      error = "Estado de la  estacion no encontrada: $id";
+    }    
+  }
+
+  void cargarEstacionPorDefecto() {
+    if (estaciones.isNotEmpty && estadoEstaciones.isNotEmpty) {
+      estacionSeleccionada = estaciones.first;
+      cargarEstadoEstacionPorId(estacionSeleccionada?.id ?? 0);
     }
   }
 }
