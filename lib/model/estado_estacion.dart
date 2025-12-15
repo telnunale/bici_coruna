@@ -82,4 +82,8 @@ class EstadoEstacion {
     );
     return b.count ?? 0;
   }
+
+  int get cantidadAnclajesDisponibles {
+    return listaAnclajes.length;
+  }
 }

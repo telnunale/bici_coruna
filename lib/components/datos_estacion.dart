@@ -1,5 +1,3 @@
-import 'package:bici_coruna/components/info_row.dart';
-import 'package:bici_coruna/model/estacion.dart';
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,27 +22,26 @@ class _DatosEstacion extends State<DatosEstacion> {
       child: Padding(
         padding: const EdgeInsetsGeometry.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            InfoRow(label: "Nombre: ", value: vm.estacionSeleccionada?.name),
-            InfoRow(
-              label: "Dirección: ",
-              value: vm.estacionSeleccionada?.address,
+            Text(
+              "Nombre: ${vm.estacionSeleccionada?.name ?? "Dato no encontrado"}",
             ),
-            InfoRow(
-              label: "Bicis Disponibles: ",
-              value:
-                  vm.estadoEstacionSeleccionada?.numBikesAvailable.toString() ??
-                  "0",
+            Text(
+              "Dirección: ${vm.estacionSeleccionada?.address ?? "Dato no encontrado"}",
             ),
-            
-            /*InfoRow(
-              label: "EFIT: ",
-              value: vm.estadoEstacionSeleccionada?.bicisEfit.toString(),
+            Text(
+              "Bicis Disponibles: ${vm.estadoEstacionSeleccionada?.numBikesAvailable ?? "Dato no encontrado"}",
             ),
-            InfoRow(
-              label: "FIT: ",
-              value: vm.estadoEstacionSeleccionada?.bicisFit.toString(),
-            ),*/
+            Text(
+              "EFIT: ${vm.estadoEstacionSeleccionada?.bicisEfit ?? "Dato no encontrado"}",
+            ),
+            Text(
+              "FIT: ${vm.estadoEstacionSeleccionada?.bicisFit ?? "Dato no encontrado"}",
+            ),
+            Text(
+              "Cantidad de anclajes disponibles:: ${vm.estadoEstacionSeleccionada?.cantidadAnclajesDisponibles ?? "Dato no encontrado"}",
+            ),
           ],
         ),
       ),

@@ -21,11 +21,20 @@ class BiciViewmodel extends ChangeNotifier {
 
   int get totalEstaciones => estaciones.length;
 
+  bool get compensaBajar {
+    try {
+      final size =   estadoEstacionSeleccionada?.listaBicisDisponibles.length ?? 0;
+      return size > 2;
+    } catch (e) {
+      error = "Error al buscar lista de bicis";
+      return false;
+    }
+  }
+
   Future<void> cargarEstaciones() async {
     loading = true;
     error = null;
     notifyListeners();
-
     try {
       final res = await Future.wait([
         repo.getInformacionEstacion(),
@@ -64,7 +73,7 @@ class BiciViewmodel extends ChangeNotifier {
       );
     } catch (e) {
       error = "Estado de la  estacion no encontrada: $id";
-    }    
+    }
   }
 
   void cargarEstacionPorDefecto() {
