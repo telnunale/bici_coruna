@@ -23,12 +23,18 @@ class BiciViewmodel extends ChangeNotifier {
 
   bool get compensaBajar {
     try {
-      final size =   estadoEstacionSeleccionada?.listaBicisDisponibles.length ?? 0;
+      final size =
+          estadoEstacionSeleccionada?.listaBicisDisponibles.length ?? 0;
       return size > 2;
     } catch (e) {
       error = "Error al buscar lista de bicis";
       return false;
     }
+  }
+
+  String bucarNombreEstacionPorEstadoid(int id) {
+    final estacion = estaciones.firstWhere((e) => e.id == id);
+    return estacion.name;
   }
 
   Future<void> cargarEstaciones() async {
@@ -81,5 +87,13 @@ class BiciViewmodel extends ChangeNotifier {
       estacionSeleccionada = estaciones.first;
       cargarEstadoEstacionPorId(estacionSeleccionada?.id ?? 0);
     }
+  }
+
+  List<EstadoEstacion> estacionesMasOcupadas() {
+    final estacionesMasOcupadas = estadoEstaciones;
+
+    estacionesMasOcupadas.sort((a, b) => b.bicisEfit.compareTo(a.bicisEfit));
+
+    return estacionesMasOcupadas.take(5).toList();
   }
 }

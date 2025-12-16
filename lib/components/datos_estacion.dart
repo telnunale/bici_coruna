@@ -25,6 +25,11 @@ class _DatosEstacion extends State<DatosEstacion> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
+              "Detalles de la estación",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const Divider(height: 2),
+            Text(
               "Nombre: ${vm.estacionSeleccionada?.name ?? "Dato no encontrado"}",
             ),
             Text(
