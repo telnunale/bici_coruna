@@ -44,12 +44,12 @@ Widget grafico(BiciViewmodel vm) {
                           top: 10,
                         ),
                         child: SizedBox(
-                          width: 60, // Ancho para lo textos no se superpongan
+                          width: 60, // Ancho para que los textos no se superpongan 
                           child: Text(
                             nombre,
                             style: const TextStyle(fontSize: 10),
                             textAlign: TextAlign.center,
-                            maxLines: 4, // Permitir 2 líneas si es necesario
+                            maxLines: 4, 
                           ),
                         ),
                       );

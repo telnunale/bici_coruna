@@ -1,4 +1,5 @@
 import 'package:bici_coruna/components/datos_estacion.dart';
+import 'package:bici_coruna/components/grafico_bicis.dart';
 import 'package:bici_coruna/components/grafico_ocupacion.dart';
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
 import 'package:bici_coruna/components/selectorEstaciones.dart';
@@ -48,26 +49,29 @@ Widget _buildBody(BiciViewmodel vm) {
     return const Center(child: Text('No hay datos'));
   }
   return Center(
-    child: Column(
-      children: [
-        Card(
-          child: ListTile(
-            leading: Icon(
-              vm.compensaBajar ? Icons.directions_bike : Icons.close,
-              color: vm.compensaBajar ? Colors.green : Colors.red,
+    child: SingleChildScrollView(
+      child: Column(
+        children: [
+          Card(
+            child: ListTile(
+              leading: Icon(
+                vm.compensaBajar ? Icons.directions_bike : Icons.close,
+                color: vm.compensaBajar ? Colors.green : Colors.red,
+              ),
+              title: vm.compensaBajar
+                  ? Text("Ahora mismo compensa bajar")
+                  : Text(
+                      "Ahora mismo no compensa bajar debido a la poca cantidad de bicis disponibles",
+                    ),
             ),
-            title: vm.compensaBajar
-                ? Text("Ahora mismo compensa bajar")
-                : Text(
-                    "Ahora mismo no compensa bajar debido a la poca cantidad de bicis disponibles",
-                  ),
           ),
-        ),
 
-        DatosEstacion(),
-        Selectorestaciones(),
-        grafico(vm),
-      ],
+          DatosEstacion(),
+          Selectorestaciones(),
+          graficoBicis(vm),
+          grafico(vm),
+        ],
+      ),
     ),
   );
 }
