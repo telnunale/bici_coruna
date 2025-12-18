@@ -48,6 +48,9 @@ Widget _buildBody(BiciViewmodel vm) {
   if (vm.estaciones.isEmpty) {
     return const Center(child: Text('No hay datos'));
   }
+//Detalles de estacion, el grafico y el pdf de esa estacion en una pantalla diferente
+// debes mostrar de que fecha y hora son los datos recibidos de la api
+
   return Center(
     child: SingleChildScrollView(
       child: Column(
