@@ -19,6 +19,8 @@ class BiciViewmodel extends ChangeNotifier {
   Estacion? estacionSeleccionada;
   EstadoEstacion? estadoEstacionSeleccionada;
 
+  DateTime lastUpdate =DateTime.now();
+
   int get totalEstaciones => estaciones.length;
 
   bool get compensaBajar {
@@ -57,6 +59,7 @@ class BiciViewmodel extends ChangeNotifier {
 
     loading = false;
     cargarEstacionPorDefecto();
+    lastUpdate= DateTime.now();
     notifyListeners();
   }
 
