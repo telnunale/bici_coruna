@@ -1,16 +1,18 @@
 # bici_coruna
+El objetivo de la aplicación es ofrecer a los usuario de BiciCoruna una aplicación que resulte mas ágil y práctica para consultar los datos de las estaciones de bici.
 
-A new Flutter project.
+# capturas
+  
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+# justificacion de las gráficas elegidas
 
-## Getting Started
+Elegí la gráfica de bicis Fit vs Efit para  visualizar de una forma rápida y clara si esta disponible el tipo de bici que se busca.
+La segunda gráfica muestra el top 5 estaciones con bicis disponibles, para tener una orientación sobre  en que estaciones es mas probable encontrar bicicletas disponibles con regularidad.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# dependencias usadas
+ http,fl_chart, pdf,printing,cupertino_icons,provider,intl

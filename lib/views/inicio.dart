@@ -1,3 +1,4 @@
+import 'package:bici_coruna/components/grafico_bicis.dart';
 import 'package:bici_coruna/components/grafico_ocupacion.dart';
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
 import 'package:bici_coruna/components/selectorEstaciones.dart';
@@ -61,42 +62,36 @@ Widget _buildBody(BuildContext context, BiciViewmodel vm) {
   if (vm.estaciones.isEmpty) {
     return const Center(child: Text('No hay datos'));
   }
-  //Detalles de estacion, el grafico y el pdf de esa estacion en una pantalla diferente
-  // debes mostrar de que fecha y hora son los datos recibidos de la api
 
-  return Center(
-    child: SingleChildScrollView(
-      child: Column(
-        children: [
-          Card(
-            child: Padding(
-              padding: const EdgeInsetsGeometry.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    " ${vm.estacionSeleccionada?.name ?? "Dato no encontrado"}",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Center(
-                    child: TextButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Detalles(vm: vm),
-                        ),
-                      ),
-                      child: Text("Ver detalles"),
+  return SingleChildScrollView(
+    child: Column(
+      children: [
+        Card(
+          child: Padding(
+            padding: const EdgeInsetsGeometry.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  " ${vm.estacionSeleccionada?.name ?? "Dato no encontrado"}",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Center(
+                  child: TextButton(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Detalles(vm: vm)),
                     ),
+                    child: Text("Ver detalles"),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          Selectorestaciones(),
-          grafico(vm),
-        ],
-      ),
+        ),
+        Selectorestaciones(),
+        graficoBicis(vm),
+      ],
     ),
   );
 }

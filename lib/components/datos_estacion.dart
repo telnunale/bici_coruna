@@ -1,3 +1,4 @@
+import 'package:bici_coruna/components/alinear_datos.dart';
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,23 +30,24 @@ class _DatosEstacion extends State<DatosEstacion> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const Divider(height: 2),
-            Text(
-              "Nombre: ${vm.estacionSeleccionada?.name ?? "Dato no encontrado"}",
+            alinearDatos("Nombre:", vm.estacionSeleccionada?.name),
+            alinearDatos("Dirección:", vm.estacionSeleccionada?.address),
+            alinearDatos(
+              "Bicis disponibles:",
+              vm.estadoEstacionSeleccionada?.numBikesAvailable.toString(),
             ),
-            Text(
-              "Dirección: ${vm.estacionSeleccionada?.address ?? "Dato no encontrado"}",
+            alinearDatos(
+              "EFIT disponibles:",
+              vm.estadoEstacionSeleccionada?.bicisEfit.toString(),
             ),
-            Text(
-              "Bicis Disponibles: ${vm.estadoEstacionSeleccionada?.numBikesAvailable ?? "Dato no encontrado"}",
+            alinearDatos(
+              "FIT disponibles:",
+              vm.estadoEstacionSeleccionada?.bicisFit.toString(),
             ),
-            Text(
-              "EFIT: ${vm.estadoEstacionSeleccionada?.bicisEfit ?? "Dato no encontrado"}",
-            ),
-            Text(
-              "FIT: ${vm.estadoEstacionSeleccionada?.bicisFit ?? "Dato no encontrado"}",
-            ),
-            Text(
-              "Cantidad de anclajes disponibles:: ${vm.estadoEstacionSeleccionada?.cantidadAnclajesDisponibles ?? "Dato no encontrado"}",
+            alinearDatos(
+              "Anclajes disponibles:",
+              vm.estadoEstacionSeleccionada?.cantidadAnclajesDisponibles
+                  .toString(),
             ),
           ],
         ),
