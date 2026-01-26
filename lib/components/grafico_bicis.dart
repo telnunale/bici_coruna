@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bici_coruna/viewmodels/bici_viewmodel.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
